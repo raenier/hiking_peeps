@@ -10,6 +10,7 @@
 #
 
 user = User.create email: 'sam@sam.com', password: 123_321_123, password_confirmation: 123_321_123
+user2 = User.create email: 'admin@admin.admin', password: 123_321_123, password_confirmation: 123_321_123
 
 {
   'Title' => 'This is the body of the posts',
