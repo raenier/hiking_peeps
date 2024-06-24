@@ -12,4 +12,8 @@ class User < ApplicationRecord
   has_many :following, through: :active_follows, source: :followee
   has_many :passive_follows, class_name: 'Follow', foreign_key: :following_id
   has_many :followers, through: :passive_follows, source: :follower
+
+  def full_name
+    "#{first_name} #{second_name}"
+  end
 end

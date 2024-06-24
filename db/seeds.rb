@@ -19,3 +19,11 @@ user2 = User.create email: 'admin@admin.admin', password: 123_321_123, password_
 }.each do |title, body|
   Post.create(title:, body:, user:)
 end
+
+{
+  'Poetry' => 'This is the body of the posts',
+  'A Post' => 'This post is about a post that post a post that did post',
+  'Just another boring post' => 'Its Another post'
+}.each do |title, body|
+  Post.create(title:, body:, user: user2)
+end
