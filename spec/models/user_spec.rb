@@ -10,4 +10,10 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:passive_follows) }
     it { is_expected.to have_many(:followers) }
   end
+
+  describe '#full_name' do
+    subject(:user) { User.new(first_name: 'John', second_name: 'Doe') }
+
+    it { expect(user.full_name).to eq('John Doe') }
+  end
 end
