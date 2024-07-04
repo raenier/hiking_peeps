@@ -1,0 +1,14 @@
+<%= form_with model: post do |f| %>
+
+  <fieldset>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :body, "Body" %>
+    <%= f.text_area :body %>
+  </fieldset>
+
+  <%= f.submit 'Save', class: 'btn' %>
+<% end %>

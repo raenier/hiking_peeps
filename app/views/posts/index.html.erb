@@ -1,5 +1,16 @@
 <h1>Posts from user and from followed users</h1>
+<div data-controller="posts">
 
-<div class="container">
-<%= render @posts %>
+  <%= button_tag  "New Post", class: "btn", data: { action: "click->posts#showModal"} %>
+
+  <div class="container">
+  <%= render @posts %>
+  </div>
+
+  <div class="modal hidden" data-posts-target="modal" data-action="keyup@window->posts#hideModalEscape">
+    <div class="modal_content">
+      <%= button_tag "X", class: "close_btn", data: { action: "click->posts#hideModal" }%>
+      <%= render "form", post: @post %>
+    </div>
+  </div>
 </div>
