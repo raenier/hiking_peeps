@@ -3,4 +3,6 @@ class Post < ApplicationRecord
 
   has_many :comments, as: :commentable
   has_many :likes, as: :likeable
+
+  validates :title, :body, presence: true
 end
