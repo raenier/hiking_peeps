@@ -15,10 +15,13 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
-      redirect_to posts_path
+      flash[:notice] = 'Post was successfully created.'
     else
-      render :new, status: :unprocessable_entity
+      flash[:alert] = 'Post was not created.'
+      flash[:errors] = @post.errors.full_messages.join(', ')
     end
+
+    redirect_to posts_path
   end
 
   private
