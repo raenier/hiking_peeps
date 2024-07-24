@@ -11,6 +11,11 @@
   background-color: white;
 }
 
+.card_link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .modal {
   position: fixed;
   top: 0;
