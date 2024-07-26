@@ -11,9 +11,15 @@
   </head>
 
   <body>
-    <header>
-      <%= button_to "Log out", destroy_user_session_path, method: :delete if current_user %>
-    </header>
+    <% if signed_in? %>
+      <header>
+        <div class="logo">
+          <%= link_to "HIKERS", root_path %>
+        </div>
+
+        <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+      </header>
+    <% end %>
     <% flash.each do |type, message| %>
       <div class="flash <%= type %>"><%= message %></div>
     <% end %>
