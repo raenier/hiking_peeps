@@ -1,10 +1,10 @@
-<h1>Posts from user and from followed users</h1>
+<h1>Posts from user only</h1>
 <div data-controller="posts">
 
   <%= button_tag  "New Post", class: "btn", data: { action: "click->posts#showModal"} %>
 
   <div class="container">
-  <%= render @posts %>
+    <%= render @posts %>
   </div>
 
   <div class="modal hidden" data-posts-target="modal" data-action="keyup@window->posts#hideModalEscape">

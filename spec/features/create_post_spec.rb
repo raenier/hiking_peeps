@@ -8,7 +8,7 @@ RSpec.feature 'CreatePosts', type: :feature do
   end
 
   scenario 'valid post' do
-    visit root_path
+    visit posts_path
     click_button 'New Post'
 
     fill_in 'Title', with: 'Title'
@@ -20,7 +20,7 @@ RSpec.feature 'CreatePosts', type: :feature do
   end
 
   scenario 'invalid post' do
-    visit root_path
+    visit posts_path
     click_button 'New Post'
 
     click_button 'Save'
