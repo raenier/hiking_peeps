@@ -51,3 +51,24 @@ main {
   padding: 0 20px;
 }
 
+.links {
+  display: flex;
+}
+
+.links button {
+  background: none;
+  border: 0;
+  font: inherit;
+  margin-left: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.links button:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.links button:active {
+  scale: 0.9;
+}
