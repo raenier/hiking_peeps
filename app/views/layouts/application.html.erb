@@ -18,6 +18,11 @@
         </div>
 
         <div class="links">
+          <ul>
+            <li><%= link_to "Feed", root_path %></li>
+            <li><%= link_to "Posts", posts_path %></li>
+          </ul>
+
           <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
         </div>
       </header>
