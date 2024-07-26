@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <header>
+      <%= button_to "Log out", destroy_user_session_path, method: :delete if current_user %>
+    </header>
     <% flash.each do |type, message| %>
       <div class="flash <%= type %>"><%= message %></div>
     <% end %>
