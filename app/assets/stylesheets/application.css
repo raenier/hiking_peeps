@@ -32,18 +32,18 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f0f0f0;
-  padding: 10px 20px;
+  background: #3a3a3a;
+  padding: 5px 20px;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
 .logo a {
   text-decoration: none;
-  color: inherit;
+  color: white;
 }
 
 main {
