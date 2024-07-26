@@ -6,6 +6,10 @@ require_relative '../config/environment'
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/cuprite'
+require 'simplecov'
+
+# Start SimpleCov for monitoring test coverage
+SimpleCov.start
 
 Capybara.register_driver :better_cuprite do |app|
   Capybara::Cuprite::Driver.new(app,

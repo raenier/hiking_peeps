@@ -73,8 +73,7 @@ group :test do
   gem "factory_bot", "~> 6.4"
   gem "factory_bot_rails", "~> 6.4"
   gem "faker", "~> 3.4"
+  gem "simplecov", "~> 0.22.0"
 end
 
 gem "devise", "~> 4.9"
-
-
