@@ -1,9 +1,10 @@
-<%= link_to post, class: "card_link" do %>
-  <div class="card">
+<div class="card">
+  <%= link_to post, class: "card_link" do %>
     <h3><%= post.title %></h3>
     <p><%= post.body %></p>
     <div>
       <%= post.user.full_name %>
     </div>
-  </div>
-<% end %>
+  <% end %>
+  <%= link_to "Delete", post, data: { turbo_method: "delete", turbo_confirm: "Are you sure?" } %>
+</div>

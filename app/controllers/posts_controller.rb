@@ -24,6 +24,12 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def destroy
+    flash[:notice] = 'Post was successfully deleted.' if Post.find(params[:id]).destroy
+
+    redirect_to posts_path
+  end
+
   private
 
   def post_params
