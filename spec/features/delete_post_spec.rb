@@ -10,7 +10,9 @@ RSpec.feature 'DeletePosts', type: :feature do
   scenario 'delete post' do
     post = create(:post, user:)
     visit post_path(post)
-    click_on 'Delete'
+    accept_confirm do
+      click_on 'Delete'
+    end
     expect(page).to have_content('Post was successfully deleted.')
     expect(page).not_to have_content(post.title)
   end
