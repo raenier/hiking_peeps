@@ -1,0 +1,4 @@
+<%= turbo_frame_tag "post_#{@post.id}" do %>
+  <%= render partial: "form", locals: { post: @post } %>
+  <%= link_to "Back", @post %>
+<% end %>
