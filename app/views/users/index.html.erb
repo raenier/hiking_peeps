@@ -1,0 +1,16 @@
+<h1>Here you can follow and unfollow hikers</h1>
+
+<h2>Followers</h2>
+<div id="followers" class="users_container">
+  <%= render partial: "user", collection: @followers, as: :user %>
+</div>
+
+<h2>Following</h2>
+<div id="following" class="users_container">
+  <%= render partial: "user", collection: @following, as: :user %>
+</div>
+
+<h2>You may know these hikers</h2>
+<div id="not_followed" class="users_container">
+  <%= render partial: "user", collection: @not_following, as: :user %>
+</div>
