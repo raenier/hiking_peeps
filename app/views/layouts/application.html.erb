@@ -12,21 +12,9 @@
 
   <body>
     <% if signed_in? %>
-      <header>
-        <div class="logo">
-          <%= link_to "HIKERS UNITED", root_path %>
-        </div>
-
-        <div class="links">
-          <ul>
-            <li><%= link_to "Feed", root_path %></li>
-            <li><%= link_to "Posts", posts_path %></li>
-          </ul>
-
-          <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-        </div>
-      </header>
+      <%= render "layouts/nav" %>
     <% end %>
+
     <% flash.each do |type, message| %>
       <div class="flash <%= type %>"><%= message %></div>
     <% end %>
