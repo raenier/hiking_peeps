@@ -12,6 +12,19 @@ FactoryBot.define do
       end
     end
 
+    trait :with_following do
+      after(:create) do |user|
+        user.follow(create(:user))
+      end
+    end
+
+    trait :with_follower do
+      after(:create) do |user|
+        follower = create(:user)
+        follower.follow(user)
+      end
+    end
+
     trait :with_followed_posts do
       after(:create) do |user|
         user.follow(create(:user, :with_posts))
