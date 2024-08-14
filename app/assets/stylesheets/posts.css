@@ -4,16 +4,58 @@
   gap: 20px;
 }
 
-.card {
+.post_card {
   border-radius: 5px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   background-color: white;
 }
 
+.post_card turbo-frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
 .card_link {
   text-decoration: none;
   color: inherit;
+}
+
+.post_card .actions {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+.post_card .actions button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #3a3a3a;
+  margin: 10px;
+}
+
+.post_card .actions .like {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post_card .actions .like img {
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+.post_card .actions .like_count {
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .modal {

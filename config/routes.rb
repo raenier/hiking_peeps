@@ -8,7 +8,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'home#index'
-  resources :posts
+  resources :posts do
+    member do
+      post 'like', to: 'likes#create'
+      delete 'unlike', to: 'likes#destroy'
+    end
+  end
+
   resources :users, only: %i[index] do
     member do
       post 'follow', to: 'follows#create'

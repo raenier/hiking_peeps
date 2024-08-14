@@ -29,7 +29,7 @@
   justify-self: end;
 }
 
-.actions button {
+.user_card .actions button {
   cursor: pointer;
   border: 0;
   padding: 0;
