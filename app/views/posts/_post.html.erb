@@ -8,8 +8,10 @@
       </div>
     <% end %>
     <div class="actions">
-      <%= link_to "Edit", edit_post_path(post) %>
-      <%= link_to "Delete", post, data: { turbo_method: "delete", turbo_confirm: "Are you sure?", turbo_frame: "_top"} %>
+      <% if current_user == post.user %>
+        <%= link_to "Edit", edit_post_path(post) %>
+        <%= link_to "Delete", post, data: { turbo_method: "delete", turbo_confirm: "Are you sure?", turbo_frame: "_top"} %>
+      <% end %>
     </div>
   <% end %>
 </div>
