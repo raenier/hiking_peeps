@@ -48,7 +48,7 @@
   justify-content: center;
 }
 
-.post_card .actions .like img {
+.post_card .actions img {
   width: 1.5rem;
   cursor: pointer;
 }

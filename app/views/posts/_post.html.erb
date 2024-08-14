@@ -19,8 +19,12 @@
 
       <div class="misc">
         <% if current_user == post.user %>
-          <%= link_to "Edit", edit_post_path(post) %>
-          <%= link_to "Delete", post, data: { turbo_method: "delete", turbo_confirm: "Are you sure?", turbo_frame: "_top"} %>
+          <%= link_to edit_post_path(post) do%>
+            <%= image_tag 'edit.svg' %>
+          <% end %>
+          <%= link_to post, data: { turbo_method: "delete", turbo_confirm: "Are you sure?", turbo_frame: "_top"} do %>
+            <%= image_tag 'delete.svg' %>
+          <% end %>
         <% end %>
       </div>
     </div>
