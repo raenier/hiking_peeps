@@ -1,5 +1,5 @@
 <div class="post_discussion">
   <%= render @post %>
 
-  <%= turbo_frame_tag "comments", src: comments_post_path(@post) %>
+  <%= turbo_frame_tag "comments", src: comments_path(@post) %>
 </div>

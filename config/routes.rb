@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     member do
       post 'like', to: 'likes#create'
       delete 'unlike', to: 'likes#destroy'
-      get 'comments', to: 'comments#index'
+      resources :comments, only: %i[index new create]
     end
   end
 

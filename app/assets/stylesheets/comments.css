@@ -3,10 +3,33 @@
   flex-direction: column;
   gap: 20px;
 }
+
+turbo-frame#comments {
+  width: 100%;
+  max-width: 500px;
+}
+
 .comment {
   padding: 20px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   background-color: #ffbc6c;
   color: white;
+}
+
+form#new_comment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form#new_comment input[type="submit"] {
+  background-color: #695566;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+
+form#new_comment textarea {
+  height: 100px;
 }

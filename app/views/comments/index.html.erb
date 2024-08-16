@@ -1,5 +1,8 @@
 <%= turbo_frame_tag "comments" do %>
-  <div class="comments">
+  <%= turbo_frame_tag "new_comment", src: new_comment_path(@post) %>
+
+  <h3>Comments</h3>
+  <div class="comments" id="comment_list">
     <%= render @comments %>
   </div>
 <% end %>
