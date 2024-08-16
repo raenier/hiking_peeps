@@ -1,2 +1,5 @@
-<h1>Posts#show</h1>
-<%= render @post %>
+<div class="post_discussion">
+  <%= render @post %>
+
+  <%= turbo_frame_tag "comments", src: comments_post_path(@post) %>
+</div>

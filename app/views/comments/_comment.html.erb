@@ -1,0 +1,8 @@
+<div class='comment'>
+  <%= turbo_frame_tag "comment_#{comment.id}" do %>
+    <p><%= comment.body %></p>
+    <div>
+      <%= comment.user.full_name %>
+    </div>
+  <% end %>
+</div>
