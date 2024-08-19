@@ -23,10 +23,10 @@
         <% end %>
         <% if current_user == post.user %>
           <%= link_to edit_post_path(post) do%>
-            <%= image_tag 'edit.svg' %>
+            <%= image_tag 'edit.svg', alt: "Edit"%>
           <% end %>
           <%= link_to post, data: { turbo_method: "delete", turbo_confirm: "Are you sure?", turbo_frame: "_top"} do %>
-            <%= image_tag 'delete.svg' %>
+            <%= image_tag 'delete.svg', alt: "Delete" %>
           <% end %>
         <% end %>
       </div>
