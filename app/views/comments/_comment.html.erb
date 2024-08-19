@@ -1,4 +1,4 @@
-<div class='comment'>
+<div class='comment <%= "own" if comment.user == current_user %>'>
   <%= turbo_frame_tag "comment_#{comment.id}" do %>
     <p><%= comment.body %></p>
     <div>
