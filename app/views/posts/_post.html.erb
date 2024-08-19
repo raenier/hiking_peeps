@@ -10,8 +10,8 @@
 
     <div class="actions">
       <div class="like">
-        <%= button_to image_tag('heart.svg'), like_post_path(post), method: :post unless current_user.liked?(post) %>
-        <%= button_to image_tag('heart_filled.svg'), unlike_post_path(post), method: :delete if current_user.liked?(post) %>
+        <%= button_to image_tag('heart.svg', alt: "Like"), like_post_path(post), method: :post unless current_user.liked?(post) %>
+        <%= button_to image_tag('heart_filled.svg', alt: "Unlike"), unlike_post_path(post), method: :delete if current_user.liked?(post) %>
         <div class="like_count">
           <%= post.likes.count %>
         </div>
