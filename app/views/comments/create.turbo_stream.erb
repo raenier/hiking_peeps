@@ -1,1 +1,2 @@
 <%= turbo_stream.prepend('comment_list', partial: 'comments/comment', locals: { comment: @comment }) %>
+<%= turbo_stream.update('flash', partial: 'layouts/flash') %>

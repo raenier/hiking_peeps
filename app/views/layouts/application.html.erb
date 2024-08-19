@@ -15,8 +15,8 @@
       <%= render "layouts/nav" %>
     <% end %>
 
-    <% flash.each do |type, message| %>
-      <div class="flash <%= type %>"><%= message %></div>
+    <%= turbo_frame_tag "flash" do %>
+      <%= render "layouts/flash" %>
     <% end %>
 
     <main>

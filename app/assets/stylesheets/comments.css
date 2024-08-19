@@ -35,4 +35,5 @@ form#new_comment input[type="submit"] {
 
 form#new_comment textarea {
   height: 100px;
+  width: 100%;
 }

@@ -14,9 +14,12 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.commentable = @post
     @comment.user = current_user
-    @comment.save
-
-    respond_to(&:turbo_stream)
+    if @comment.save
+      flash.now[:notice] = 'Comment was successfully created.'
+      respond_to(&:turbo_stream)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
