@@ -10,9 +10,19 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :posts do
     member do
-      post 'like', to: 'likes#create'
-      delete 'unlike', to: 'likes#destroy'
-      resources :comments, only: %i[index new create]
+      defaults likeable_type: 'Post' do
+        post 'like', to: 'likes#create'
+        delete 'unlike', to: 'likes#destroy'
+      end
+
+      resources :comments, only: %i[index new create show], shallow: true do
+        member do
+          defaults likeable_type: 'Comment' do
+            post 'like', to: 'likes#create'
+            delete 'unlike', to: 'likes#destroy'
+          end
+        end
+      end
     end
   end
 

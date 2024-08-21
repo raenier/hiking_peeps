@@ -30,12 +30,12 @@ class User < ApplicationRecord
     following.include?(user)
   end
 
-  def like(post)
-    likes.create(likeable: post, user: self)
+  def like(likeable)
+    likes.create(likeable:, user: self)
   end
 
-  def unlike(post)
-    likes.find_by(likeable_id: post.id).destroy
+  def unlike(likeable)
+    likes.find_by(likeable_id: likeable.id).destroy
   end
 
   def liked?(post)

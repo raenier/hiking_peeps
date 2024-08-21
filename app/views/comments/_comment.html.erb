@@ -4,5 +4,16 @@
     <div>
       <%= comment.user.full_name %>
     </div>
+    <div class="actions">
+      <div class="like">
+        <%= button_to image_tag('heart.svg', alt: "Like"),
+            like_comment_path(comment),
+            method: :post unless current_user.liked?(comment) %>
+
+        <%= button_to image_tag('heart_filled.svg', alt: "Unlike"),
+            unlike_comment_path(comment),
+            method: :delete if current_user.liked?(comment) %>
+      </div>
+    </div>
   <% end %>
 </div>

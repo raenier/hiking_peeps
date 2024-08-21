@@ -15,7 +15,23 @@ turbo-frame#comments {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
+.comment turbo-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .comment.own {
   background-color: #ffbc6c;
   color: white;
+}
+
+.comment .actions img {
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+.comment .actions button {
+  border: 0;
+  background: transparent;
 }

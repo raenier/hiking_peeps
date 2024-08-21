@@ -6,6 +6,10 @@ class CommentsController < ApplicationController
     @comments = Comment.where(commentable_type: 'Post', commentable: @post).order(created_at: :desc)
   end
 
+  def show
+    @comment = Comment.find(params[:id])
+  end
+
   def new
     @comment = Comment.new(commentable: @post, user: current_user)
   end

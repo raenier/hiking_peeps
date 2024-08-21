@@ -2,16 +2,16 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    post = Post.find(params[:id])
-    current_user.like(post)
+    likeable = params[:likeable_type].constantize.find(params[:id])
+    current_user.like(likeable)
 
-    redirect_to post
+    redirect_to likeable
   end
 
   def destroy
-    post = Post.find(params[:id])
-    current_user.unlike(post)
+    likeable = params[:likeable_type].constantize.find(params[:id])
+    current_user.unlike(likeable)
 
-    redirect_to post
+    redirect_to likeable
   end
 end
