@@ -41,4 +41,8 @@ class User < ApplicationRecord
   def liked?(post)
     likes.find_by likeable_id: post.id
   end
+
+  def posts_feed
+    Post.where(user: following).or(Post.where(user: self)).order(created_at: :desc)
+  end
 end

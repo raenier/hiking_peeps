@@ -2,6 +2,12 @@
   Here's your feed, <%= current_user.full_name %>
 </h2>
 
-<div class="container">
-  <%= render @posts %>
+<div class="flex_column flex_center">
+  <div class="post_card">
+    <%= turbo_frame_tag "new_post", src: new_post_path %>
+  </div>
+
+  <div class="container" id="post_list">
+    <%= render @posts %>
+  </div>
 </div>
