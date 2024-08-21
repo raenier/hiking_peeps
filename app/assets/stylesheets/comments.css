@@ -19,21 +19,3 @@ turbo-frame#comments {
   background-color: #ffbc6c;
   color: white;
 }
-
-form#new_comment {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-form#new_comment input[type="submit"] {
-  background-color: #695566;
-  cursor: pointer;
-  font-weight: bold;
-  color: white;
-}
-
-form#new_comment textarea {
-  height: 100px;
-  width: 100%;
-}

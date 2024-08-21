@@ -24,13 +24,6 @@
   max-width: 600px;
 }
 
-.post_card turbo-frame {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
 .card_link {
   text-decoration: none;
   color: inherit;
@@ -75,35 +68,10 @@
   display: none;
 }
 
-fieldset {
-  border: none;
-  padding: 2px;
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-input {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid gray;
-}
-
-textarea {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid gray;
-  height: 3rem;
-}
-
 .btn {
   cursor: pointer;
   font-weight: bold;
-  background-color: green;
+  background-color: #695566;
   color: white;
   border: none;
   padding: 10px;

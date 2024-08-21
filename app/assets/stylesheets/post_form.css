@@ -1,0 +1,22 @@
+.post_card input[type="text"] {
+  padding: 10px;
+  border: 0;
+  font-size: 1.2rem;
+}
+
+.post_card textarea {
+  padding: 10px;
+  height: 3rem;
+  font-size: 1.1rem;
+  border: 0;
+}
+
+.post_card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.post_card form *:focus {
+  outline: none;
+}

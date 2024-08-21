@@ -1,16 +1,8 @@
 <%= form_with model: post, data: { controller: "form", action: "turbo:submit-end->form#reset" } do |f| %>
-
-  <fieldset>
-    <%= f.label :title, "Title" %>
-    <%= f.text_field :title %>
-  </fieldset>
-
-  <fieldset>
-    <%= f.label :body, "Body" %>
-    <%= f.text_area :body %>
-  </fieldset>
+  <%= f.text_field :title, placeholder: "Title" %>
+  <%= f.text_area :body, placeholder: "What's on your mind?" %>
 
   <%= render partial: "shared/errors", locals: { object: post } %>
 
-  <%= f.submit 'Save', class: 'btn' %>
+  <%= f.submit 'SAVE POST', class: 'btn' %>
 <% end %>

@@ -10,10 +10,12 @@ RSpec.feature 'CreatePosts', type: :feature do
 
   context 'On Posts index page' do
     let(:subject_path) { posts_path }
+
     scenario 'valid post' do
-      fill_in 'Title', with: 'Title'
-      fill_in 'Body', with: 'Body'
-      click_button 'Save'
+      fill_in 'post_title', with: 'Title'
+      fill_in 'post_body', with: 'Body'
+
+      click_button 'SAVE POST'
 
       expect(page).to have_content('Post was successfully created.')
       expect(page).to have_content('Title')
@@ -22,7 +24,7 @@ RSpec.feature 'CreatePosts', type: :feature do
 
     scenario 'invalid post' do
       within '#new_post form' do
-        click_button 'Save'
+        click_button 'SAVE POST'
       end
 
       expect(page).to have_content("Title can't be blank")
@@ -34,9 +36,10 @@ RSpec.feature 'CreatePosts', type: :feature do
     let(:subject_path) { root_path }
 
     scenario 'valid post' do
-      fill_in 'Title', with: 'Title'
-      fill_in 'Body', with: 'Body'
-      click_button 'Save'
+      fill_in 'post_title', with: 'Title'
+      fill_in 'post_body', with: 'Body'
+
+      click_button 'SAVE POST'
 
       expect(page).to have_content('Post was successfully created.')
       expect(page).to have_content('Title')
@@ -45,7 +48,7 @@ RSpec.feature 'CreatePosts', type: :feature do
 
     scenario 'invalid post' do
       within '#new_post form' do
-        click_button 'Save'
+        click_button 'SAVE POST'
       end
 
       expect(page).to have_content("Title can't be blank")
