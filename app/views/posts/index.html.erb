@@ -1,16 +1,10 @@
 <h1>Posts from user only</h1>
-<div data-controller="posts">
-
-  <%= button_tag  "New Post", class: "btn", data: { action: "click->posts#showModal"} %>
-
-  <div class="container">
-    <%= render @posts %>
+<div class="flex_column flex_center">
+  <div class="post_card">
+    <%= turbo_frame_tag "new_post", src: new_post_path %>
   </div>
 
-  <div class="modal hidden" data-posts-target="modal" data-action="keyup@window->posts#hideModalEscape">
-    <div class="modal_content">
-      <%= button_tag "X", class: "close_btn", data: { action: "click->posts#hideModal" }%>
-      <%= render "form", post: @post %>
-    </div>
+  <div class="container" id="post_list">
+    <%= render @posts %>
   </div>
 </div>

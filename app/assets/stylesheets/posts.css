@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  width: 100%;
 }
 
 .post_discussion {
@@ -70,37 +71,6 @@
   font-weight: bold;
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal_content {
-  background-color: white;
-  padding: 20px;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-}
-
-.close_btn {
-  align-self: flex-end;
-  border: 0;
-  background-color: white;
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: black;
-}
-
 .hidden {
   display: none;
 }
@@ -130,12 +100,6 @@ textarea {
   height: 3rem;
 }
 
-.modal form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .btn {
   cursor: pointer;
   font-weight: bold;
@@ -144,4 +108,15 @@ textarea {
   border: none;
   padding: 10px;
   border-radius: 5px;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.flex_center {
+  align-items: center;
+  justify-content: center;
 }

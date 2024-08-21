@@ -9,11 +9,11 @@ RSpec.feature 'CreatePosts', type: :feature do
 
   scenario 'valid post' do
     visit posts_path
-    click_button 'New Post'
 
     fill_in 'Title', with: 'Title'
     fill_in 'Body', with: 'Body'
     click_button 'Save'
+
     expect(page).to have_content('Post was successfully created.')
     expect(page).to have_content('Title')
     expect(page).to have_content('Body')
@@ -21,10 +21,11 @@ RSpec.feature 'CreatePosts', type: :feature do
 
   scenario 'invalid post' do
     visit posts_path
-    click_button 'New Post'
 
-    click_button 'Save'
-    expect(page).to have_content('Post was not created.')
+    within '#new_post form' do
+      click_button 'Save'
+    end
+
     expect(page).to have_content("Title can't be blank")
     expect(page).to have_content("Body can't be blank")
   end
