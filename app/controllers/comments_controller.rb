@@ -26,6 +26,28 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      flash[:notice] = 'Comment was successfully updated.'
+      redirect_to @comment
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    return unless @comment.destroy
+
+    flash[:notice] = 'Comment was successfully deleted.'
+    redirect_to @comment.commentable
+  end
+
   private
 
   def comment_params

@@ -14,6 +14,18 @@
             unlike_comment_path(comment),
             method: :delete if current_user.liked?(comment) %>
       </div>
+
+      <div class="misc">
+        <% if current_user == comment.user %>
+          <%= link_to edit_comment_path(comment) do %>
+            <%= image_tag 'edit.svg', alt: "Edit" %>
+          <% end %>
+
+          <%= link_to comment, data: { turbo_method: "delete", turbo_confirm: "Are you sure?", turbo_frame: "_top"} do %>
+            <%= image_tag 'delete.svg', alt: "Delete" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

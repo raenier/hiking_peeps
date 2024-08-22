@@ -15,7 +15,7 @@ Rails.application.routes.draw do
         delete 'unlike', to: 'likes#destroy'
       end
 
-      resources :comments, only: %i[index new create show], shallow: true do
+      resources :comments, shallow: true do
         member do
           defaults likeable_type: 'Comment' do
             post 'like', to: 'likes#create'

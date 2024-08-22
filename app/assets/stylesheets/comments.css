@@ -9,16 +9,17 @@ turbo-frame#comments {
   max-width: 500px;
 }
 
-.comment {
+.comment turbo-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 20px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.comment turbo-frame {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.comment turbo-frame p {
+  white-space: pre-wrap;
 }
 
 .comment.own {
@@ -34,4 +35,17 @@ turbo-frame#comments {
 .comment .actions button {
   border: 0;
   background: transparent;
+}
+
+.comment .actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment form + a {
+  font-weight: bold;
+  color: #3a3a3a;
+  cursor: pointer;
+  text-decoration: none;
 }

@@ -1,0 +1,4 @@
+<%= turbo_frame_tag "comment_#{@comment.id}" do %>
+  <%= render partial: "form", comment: @comment %>
+  <%= link_to "Back", @comment %>
+<% end %>
