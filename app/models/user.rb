@@ -38,8 +38,8 @@ class User < ApplicationRecord
     likes.find_by(likeable_id: likeable.id).destroy
   end
 
-  def liked?(post)
-    likes.find_by likeable_id: post.id
+  def liked?(likeable)
+    likes.find_by likeable:
   end
 
   def posts_feed
