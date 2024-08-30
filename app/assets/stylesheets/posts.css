@@ -92,6 +92,10 @@
   justify-content: center;
 }
 
+.post_card .body {
+  white-space: pre-wrap;
+}
+
 .post_card .images {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

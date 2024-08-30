@@ -2,7 +2,7 @@
   <%= turbo_frame_tag "post_#{post.id}" do %>
     <%= link_to post, class: "card_link", data: { turbo_frame: "_top" } do %>
       <h3><%= post.title %></h3>
-      <p><%= post.body %></p>
+      <p class="body"><%= post.body %></p>
 
       <div class="images">
         <% post.images.each do |image| %>
