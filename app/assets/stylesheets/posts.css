@@ -91,3 +91,19 @@
   align-items: center;
   justify-content: center;
 }
+
+.post_card .images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.post_card .images img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.post_card .user_name {
+  margin-top: 10px;
+  font-weight: bold;
+}

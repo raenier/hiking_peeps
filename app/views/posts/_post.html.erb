@@ -3,7 +3,14 @@
     <%= link_to post, class: "card_link", data: { turbo_frame: "_top" } do %>
       <h3><%= post.title %></h3>
       <p><%= post.body %></p>
-      <div>
+
+      <div class="images">
+        <% post.images.each do |image| %>
+          <%= image_tag image %>
+        <% end %>
+      </div>
+
+      <div class="user_name">
         <%= post.user.full_name %>
       </div>
     <% end %>
