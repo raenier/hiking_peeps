@@ -44,4 +44,5 @@ group :test do
   gem 'simplecov', '~> 0.22.0'
 end
 
+gem 'active_storage_validations'
 gem 'devise', '~> 4.9'

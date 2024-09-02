@@ -6,4 +6,5 @@ class Post < ApplicationRecord
   has_many_attached :images
 
   validates :title, :body, presence: true
+  validates :images, content_type: %i[png jpg jpeg]
 end
