@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :likes
+  has_one :profile
+  has_many :hobies, through: :profile
 
   has_many :active_follows, class_name: 'Follow', foreign_key: :follower_id
   has_many :following, through: :active_follows, source: :followee
