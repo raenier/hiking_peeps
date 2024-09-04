@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_30_062340) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_04_085348) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_30_062340) do
     t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
+  create_table "hobies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hobies_profiles", id: false, force: :cascade do |t|
+    t.bigint "hoby_id", null: false
+    t.bigint "profile_id", null: false
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "likeable_type", null: false
@@ -79,6 +90,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_30_062340) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "description"
+    t.integer "gender"
+    t.date "bday"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -102,4 +124,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_30_062340) do
   add_foreign_key "follows", "users", column: "following_id"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "users"
 end
