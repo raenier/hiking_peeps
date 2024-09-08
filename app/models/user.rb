@@ -16,6 +16,12 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_follows, source: :follower
   has_many :followed_posts, through: :following, source: :posts
 
+  has_one_attached :avatar
+  has_one_attached :cover_photo
+
+  validates :avatar, content_type: %i[png jpg jpeg]
+  validates :cover_photo, content_type: %i[png jpg jpeg]
+
   def full_name
     "#{first_name} #{second_name}"
   end

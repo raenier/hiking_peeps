@@ -1,3 +1,16 @@
+<%= form_with model: @user do |f| %>
+  <%= f.file_field :avatar %>
+  <%= f.file_field :cover_photo %>
+  <%= f.submit 'Update profile pictures' %>
+
+  <%= render partial: "shared/errors", locals: { object: @user } %>
+<% end %>
+
+<%= content_tag :div, class: 'banner' do %>
+  <%= image_tag @user.cover_photo if @user.cover_photo.attached? && @user.cover_photo.persisted? %>
+  <%= image_tag @user.avatar if @user.avatar.attached? && @user.avatar.persisted? %>
+<% end %>
+
 <%= content_tag :h1, @user.full_name %>
 <%= content_tag :div, @user.email %>
 
