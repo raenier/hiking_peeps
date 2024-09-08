@@ -3,7 +3,7 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/cuprite'
 require 'simplecov'
@@ -15,7 +15,7 @@ Capybara.register_driver :better_cuprite do |app|
   Capybara::Cuprite::Driver.new(app,
                                 **{
                                   window_size: [1200, 800],
-                                  process_timeout: 20,
+                                  process_timeout: 20
                                 })
 end
 Capybara.default_driver = Capybara.javascript_driver = :better_cuprite
@@ -81,6 +81,10 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   # FactoryBot helpers
   config.include FactoryBot::Syntax::Methods
+
+  config.after(:all) do
+    FileUtils.rm_rf(ActiveStorage::Blob.service.root)
+  end
 end
 
 # Configuration for shoulda matcher, see https://github.com/thoughtbot/shoulda-matchers
