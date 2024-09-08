@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: %i[index show], shallow: true do
+  resources :users, only: %i[index show update], shallow: true do
     member do
       post 'follow', to: 'follows#create'
       delete 'unfollow', to: 'follows#destroy'
