@@ -1,4 +1,8 @@
 <%= turbo_frame_tag "profile" do %>
+  <%= link_to edit_profile_path(@profile) do %>
+    <%= image_tag 'edit.svg', alt: 'Edit' %>
+  <% end if current_user == @profile.user %>
+
   <%= content_tag :div, @profile.description %>
   <%= content_tag :div, @profile.gender %>
   <%= content_tag :div, @profile.bday %>

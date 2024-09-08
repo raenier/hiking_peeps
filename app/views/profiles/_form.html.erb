@@ -1,0 +1,9 @@
+<%= form_with model: profile do |f| %>
+  <%= f.text_field :description, placeholder: "Description" %>
+  <%= f.select :gender, Profile.genders.keys, placeholder: "Gender" %>
+  <%= f.date_field :bday, placeholder: "Birthday" %>
+  <%= f.text_field :address, placeholder: "Address" %>
+  <%= f.submit 'SAVE PROFILE', class: 'btn' %>
+
+  <%= render partial: "shared/errors", locals: { object: profile } %>
+<% end %>

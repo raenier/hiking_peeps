@@ -10,6 +10,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:passive_follows) }
     it { is_expected.to have_many(:followers) }
     it { is_expected.to have_many(:hobies) }
+    it { is_expected.to have_one(:profile) }
   end
 
   describe '#full_name' do
