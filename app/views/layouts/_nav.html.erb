@@ -8,6 +8,7 @@
       <li><%= link_to "Feed", root_path %></li>
       <li><%= link_to "Posts", posts_path %></li>
       <li><%= link_to "Hikers", users_path %></li>
+      <li><%= link_to "Profile", user_path(current_user) %></li>
     </ul>
 
     <%= button_to "Sign out", destroy_user_session_path, method: :delete %>

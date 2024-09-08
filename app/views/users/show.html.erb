@@ -1,0 +1,4 @@
+<%= content_tag :h1, @user.full_name %>
+<%= content_tag :div, @user.email %>
+
+<%= turbo_frame_tag "profile", src: profile_path(@user.profile) if @user.profile %>

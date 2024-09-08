@@ -30,5 +30,11 @@ FactoryBot.define do
         user.follow(create(:user, :with_posts))
       end
     end
+
+    trait :with_profile do
+      after(:create) do |user|
+        create(:profile, user:)
+      end
+    end
   end
 end

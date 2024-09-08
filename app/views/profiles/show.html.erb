@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "profile" do %>
+  <%= content_tag :div, @profile.description %>
+  <%= content_tag :div, @profile.gender %>
+  <%= content_tag :div, @profile.bday %>
+  <%= content_tag :div, @profile.address %>
+<% end %>
