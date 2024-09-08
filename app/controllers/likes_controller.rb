@@ -1,6 +1,4 @@
 class LikesController < ApplicationController
-  before_action :authenticate_user!
-
   def create
     likeable = params[:likeable_type].constantize.find(params[:id])
     current_user.like(likeable)
