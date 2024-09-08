@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     member do
       post 'follow', to: 'follows#create'
       delete 'unfollow', to: 'follows#destroy'
-      resources :profiles, only: %i[show]
+      resources :profiles, only: %i[show edit update]
     end
   end
 end
