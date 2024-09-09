@@ -47,6 +47,7 @@ end
 gem 'active_storage_validations'
 gem 'devise', '~> 4.9'
 
-gem "dockerfile-rails", ">= 1.6", :group => :development
+gem 'dockerfile-rails', '>= 1.6', group: :development
 
-gem "aws-sdk-s3", "~> 1.159", :require => false
+gem 'aws-sdk-s3', '~> 1.159', require: false
+gem 'kaminari'

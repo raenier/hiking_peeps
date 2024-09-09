@@ -4,6 +4,7 @@
     <%= turbo_frame_tag "posts" do %>
       <div class="container" id="post_list">
         <%= render @posts %>
+        <%= paginate @posts %>
       </div>
     <% end %>
   </div>
