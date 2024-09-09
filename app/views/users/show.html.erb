@@ -1,17 +1,30 @@
-<%= form_with model: @user do |f| %>
-  <%= f.file_field :avatar %>
-  <%= f.file_field :cover_photo %>
-  <%= f.submit 'Update profile pictures' %>
+<%= content_tag :div, class: 'profile' do %>
 
-  <%= render partial: "shared/errors", locals: { object: @user } %>
+<%= content_tag :div, class: 'banner', style: "background-image: url(#{@user.cover_photo.persisted? ? rails_blob_url(@user.cover_photo) : image_path('default_cover.jpg')})" do %>
+  <% if @user == current_user %>
+    <%= form_with model: @user do |f| %>
+      <%= f.label :avatar do %>
+        <%= image_tag 'upload.svg', alt: 'Update Avatar' %>
+      <% end %>
+      <%= f.file_field :avatar, class: 'hidden', onchange: 'this.form.submit()' %>
+
+      <%= f.label :cover_photo do %>
+        <%= image_tag 'upload.svg', alt: 'Update Cover Photo' %>
+      <% end %>
+      <%= f.file_field :cover_photo, class: 'hidden', onchange: 'this.form.submit()' %>
+
+      <%= render partial: "shared/errors", locals: { object: @user } %>
+    <% end %>
+  <% end %>
+
+  <%= image_tag (@user.avatar if @user.avatar.attached? && @user.avatar.persisted?) || "sample.svg", class: 'avatar' %>
 <% end %>
 
-<%= content_tag :div, class: 'banner' do %>
-  <%= image_tag @user.cover_photo if @user.cover_photo.attached? && @user.cover_photo.persisted? %>
-  <%= image_tag @user.avatar if @user.avatar.attached? && @user.avatar.persisted? %>
+<%= content_tag :div, class: 'details' do %>
+  <%= content_tag :h1, @user.full_name %>
+  <%= content_tag :div, @user.email %>
+
+  <%= turbo_frame_tag "profile", src: profile_path(@user.profile) if @user.profile %>
 <% end %>
 
-<%= content_tag :h1, @user.full_name %>
-<%= content_tag :div, @user.email %>
-
-<%= turbo_frame_tag "profile", src: profile_path(@user.profile) if @user.profile %>
+<% end %>
