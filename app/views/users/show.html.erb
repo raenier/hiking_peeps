@@ -27,4 +27,9 @@
   <%= turbo_frame_tag "profile", src: profile_path(@user.profile) if @user.profile %>
 <% end %>
 
+<%= content_tag :div, class: 'flex_column flex_center' do %>
+  <%= turbo_frame_tag "new_post", src: new_post_path if @user == current_user %>
+  <%= turbo_frame_tag "posts", src: posts_path(user: @user) %>
+<% end %>
+
 <% end %>

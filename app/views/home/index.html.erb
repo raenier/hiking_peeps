@@ -3,9 +3,7 @@
 </h2>
 
 <div class="flex_column flex_center">
-  <div class="post_card">
-    <%= turbo_frame_tag "new_post", src: new_post_path %>
-  </div>
+  <%= turbo_frame_tag "new_post", src: new_post_path %>
 
   <div class="container" id="post_list">
     <%= render @posts %>
