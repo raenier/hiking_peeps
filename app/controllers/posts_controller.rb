@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(user: params[:user] || current_user).order(created_at: :desc)
+    @posts = Post.where(user: params[:user] || current_user).order(created_at: :desc).page(params[:page])
   end
 
   def show
