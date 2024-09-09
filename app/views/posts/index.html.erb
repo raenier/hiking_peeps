@@ -1,10 +1,9 @@
-<h2>Posts from user only</h2>
-<div class="flex_column flex_center">
-  <div class="post_card">
+  <div class="flex_column flex_center">
     <%= turbo_frame_tag "new_post", src: new_post_path %>
-  </div>
 
-  <div class="container" id="post_list">
-    <%= render @posts %>
+    <%= turbo_frame_tag "posts" do %>
+      <div class="container" id="post_list">
+        <%= render @posts %>
+      </div>
+    <% end %>
   </div>
-</div>
