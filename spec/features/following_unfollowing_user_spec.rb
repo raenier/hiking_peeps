@@ -13,13 +13,13 @@ RSpec.feature 'FollowingUnfollowingUsers', type: :feature do
       visit users_path
 
       user = find("#user_#{other_user.id}")
-      user.click_button 'Follow'
+      user.click_on 'Follow'
 
       within '#following' do
-        expect(page).to have_content('Unfollow')
+        expect(page).to have_button('Unfollow')
       end
       within '#not_followed' do
-        expect(page).not_to have_content('Follow')
+        expect(page).not_to have_button('Follow')
       end
     end
   end
@@ -32,13 +32,13 @@ RSpec.feature 'FollowingUnfollowingUsers', type: :feature do
       visit users_path
 
       user = find("#user_#{other_user.id}")
-      user.click_button 'Unfollow'
+      user.click_on 'Unfollow'
 
       within '#following' do
-        expect(page).not_to have_content('Unfollow')
+        expect(page).not_to have_button('Unfollow')
       end
       within '#not_followed' do
-        expect(page).to have_content('Follow')
+        expect(page).to have_button('Follow')
       end
     end
   end
