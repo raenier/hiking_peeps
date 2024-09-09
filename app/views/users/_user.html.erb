@@ -1,12 +1,15 @@
 <div class="user_card" id="user_<%= user.id %>">
-  <div class="avatar">
-    <%= image_tag 'sample.svg', class: "avatar" %>
-  </div>
-  <div class="name">
-    <%= user.full_name %>
-  </div>
+  <%= link_to user_path(user) do %>
+    <div class="avatar">
+      <%= image_tag (user.avatar if user.avatar.attached? && user.avatar.persisted?) ||'sample.svg', class: "avatar" %>
+    </div>
+    <div class="name">
+      <%= user.full_name %>
+    </div>
+  <% end %>
+
   <div class="actions">
-    <%= button_to "Follow", follow_user_path(user), method: :post if !current_user.following?(user) %>
-    <%= button_to "Unfollow", unfollow_user_path(user), method: :delete if current_user.following?(user) %>
+    <%= button_to image_tag('follow.svg', alt: 'Follow'), follow_user_path(user), method: :post if !current_user.following?(user) %>
+    <%= button_to image_tag('unfollow.svg', alt: 'Unfollow'), unfollow_user_path(user), method: :delete if current_user.following?(user) %>
   </div>
 </div>
