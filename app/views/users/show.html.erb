@@ -26,6 +26,11 @@
     <%= content_tag :div, @user.email %>
   <% end %>
 
+  <%= content_tag :div, class: 'actions' do %>
+    <%= button_to image_tag('follow.svg', alt: 'Follow'), follow_user_path(@user), method: :post if !current_user.following?(@user) %>
+    <%= button_to image_tag('unfollow.svg', alt: 'Unfollow'), unfollow_user_path(@user), method: :delete if current_user.following?(@user) %>
+  <% end unless @user == current_user %>
+
   <%= turbo_frame_tag "profile", src: profile_path(@user.profile) if @user.profile %>
 <% end %>
 
