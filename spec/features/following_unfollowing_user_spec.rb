@@ -22,6 +22,16 @@ RSpec.feature 'FollowingUnfollowingUsers', type: :feature do
         expect(page).not_to have_button('Follow')
       end
     end
+
+    context 'on users profile page' do
+      it 'follow a user' do
+        visit user_path(other_user)
+
+        click_on 'Follow'
+
+        expect(page).to have_button('Unfollow')
+      end
+    end
   end
 
   context 'with followed user' do
@@ -38,6 +48,16 @@ RSpec.feature 'FollowingUnfollowingUsers', type: :feature do
         expect(page).not_to have_button('Unfollow')
       end
       within '#not_followed' do
+        expect(page).to have_button('Follow')
+      end
+    end
+
+    context 'on users profile page' do
+      it 'unfollow a user' do
+        visit user_path(other_user)
+
+        click_on 'Unfollow'
+
         expect(page).to have_button('Follow')
       end
     end
