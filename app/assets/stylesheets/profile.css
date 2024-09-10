@@ -1,6 +1,8 @@
 .profile {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -65,9 +67,72 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 90vw;
+
+  font-size: 1.2rem;
 }
 
-.details img {
+@media (min-width: 800px) {
+  .details {
+    width: 60vw;
+  }
+}
+
+.details .first_part {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.details img[alt="Edit"] {
   width: 20px;
   height: 20px;
+}
+
+.details a {
+  text-decoration: none;
+  color: black;
+  align-self: end;
+}
+
+.details turbo-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.details .description {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.4rem;
+  border-radius: 85% 15% 66% 34% / 53% 79% 21% 47%;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  padding: 80px;
+}
+
+.details .address, .details .bday, .details .gender {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  border-radius: 16% 84% 50% 50% / 85% 72% 28% 15% ;
+  padding: 20px;
+
+  align-self: end;
+}
+
+.details form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.details .field input, .details .field textarea, .details .field select {
+  padding: 15px;
+  border: 0;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  width: 100%;
+}
+
+.details .field textarea {
+  height: 7rem;
 }
