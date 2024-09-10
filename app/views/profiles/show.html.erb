@@ -1,10 +1,10 @@
 <%= turbo_frame_tag "profile" do %>
   <%= link_to edit_profile_path(@profile) do %>
-    <%= image_tag 'edit.svg', alt: 'Edit' %>
+    <%= image_tag 'edit.svg', alt: 'Edit' %> Update
   <% end if current_user == @profile.user %>
 
-  <%= content_tag :div, @profile.description %>
-  <%= content_tag :div, @profile.gender %>
-  <%= content_tag :div, @profile.bday %>
-  <%= content_tag :div, @profile.address %>
+  <%= content_tag :div, @profile.gender, class: 'gender' %>
+  <%= content_tag :div, @profile.bday, class: 'bday' %>
+  <%= content_tag :div, @profile.address, class: 'address' %>
+  <%= content_tag :div, "\"#{@profile.description}\"", class: 'description' %>
 <% end %>

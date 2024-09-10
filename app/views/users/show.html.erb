@@ -21,8 +21,10 @@
 <% end %>
 
 <%= content_tag :div, class: 'details' do %>
-  <%= content_tag :h1, @user.full_name %>
-  <%= content_tag :div, @user.email %>
+  <%= content_tag :div, class: 'first_part' do %>
+    <%= content_tag :h1, @user.full_name %>
+    <%= content_tag :div, @user.email %>
+  <% end %>
 
   <%= turbo_frame_tag "profile", src: profile_path(@user.profile) if @user.profile %>
 <% end %>
