@@ -40,12 +40,16 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
+    <%= f.fields_for :profile do |f| %>
+      <%= render partial: "profiles/fields", locals: { f: f } %>
+    <% end %>
+
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>
   <% end %>
 
-  <%= render "users/shared/links" %>
+    <%= render "users/shared/links" %>
 
   </div>
 </div>

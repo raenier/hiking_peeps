@@ -1,0 +1,19 @@
+<div class="field">
+  <%= f.label :gender, "Gender:" %><br />
+  <%= f.select :gender, Profile.genders.keys, placeholder: "Gender" %>
+</div>
+
+<div class="field">
+  <%= f.label :bday, "Birthday:" %><br />
+  <%= f.date_field :bday, placeholder: "Birthday" %>
+</div>
+
+<div class="field">
+  <%= f.label :address, "Address:" %><br />
+  <%= f.text_field :address, placeholder: "Address" %>
+</div>
+
+<div class="field">
+  <%= f.label :description, "Desribe yourself(Moto or anything):" %><br />
+  <%= f.text_area :description, placeholder: "Description" %>
+</div>

@@ -23,6 +23,10 @@ class User < ApplicationRecord
   validates :avatar, content_type: %i[png jpg jpeg]
   validates :cover_photo, content_type: %i[png jpg jpeg]
 
+  accepts_nested_attributes_for :profile
+
+  after_initialize :build_profile, if: -> { new_record? && profile.nil? }
+
   def full_name
     "#{first_name} #{second_name}"
   end
