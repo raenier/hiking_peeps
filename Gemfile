@@ -1,9 +1,14 @@
 source 'https://rubygems.org'
 
 ruby '3.3.0'
+gem 'active_storage_validations'
+gem 'aws-sdk-s3', '~> 1.159', require: false
 gem 'bootsnap', require: false
+gem 'devise', '~> 4.9'
+gem 'dockerfile-rails', '>= 1.6', group: :development
 gem 'importmap-rails'
 gem 'jbuilder'
+gem 'kaminari'
 gem 'pg', '~> 1.1'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.3', '>= 7.1.3.4'
@@ -43,11 +48,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'simplecov', '~> 0.22.0'
 end
-
-gem 'active_storage_validations'
-gem 'devise', '~> 4.9'
-
-gem 'dockerfile-rails', '>= 1.6', group: :development
-
-gem 'aws-sdk-s3', '~> 1.159', require: false
-gem 'kaminari'
