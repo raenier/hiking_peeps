@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'ProfilePages', type: :feature do
-  let(:user) { create(:user, :with_profile) }
+  let(:user) { create(:user) }
   let(:profile) { user.profile }
 
   before do
