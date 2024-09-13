@@ -13,6 +13,11 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_one(:profile) }
   end
 
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:first_name) }
+    it { is_expected.to validate_presence_of(:second_name) }
+  end
+
   describe '#full_name' do
     subject(:user) { User.new(first_name: 'John', second_name: 'Doe') }
 
