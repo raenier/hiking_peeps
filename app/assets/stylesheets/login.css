@@ -1,0 +1,9 @@
+.login form .field input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+}
+
+.field:has(input[type='checkbox']) {
+  display: flex;
+  align-items: center;
+}

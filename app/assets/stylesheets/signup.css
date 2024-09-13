@@ -9,6 +9,7 @@
   .signup {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 1fr;
     max-width: 90vw;
     margin-top: 50px;
   }
