@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_one_attached :cover_photo
 
+  validates :first_name, :second_name, presence: true
   validates :avatar, content_type: %i[png jpg jpeg]
   validates :cover_photo, content_type: %i[png jpg jpeg]
 
