@@ -82,6 +82,9 @@ RSpec.configure do |config|
   # FactoryBot helpers
   config.include FactoryBot::Syntax::Methods
 
+  # Fail fast, stop on first failed spec
+  config.fail_fast = true
+
   config.after(:all) do
     FileUtils.rm_rf(ActiveStorage::Blob.service.root)
   end
