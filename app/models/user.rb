@@ -16,7 +16,9 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_follows, source: :follower
   has_many :followed_posts, through: :following, source: :posts
 
-  has_one_attached :avatar
+  has_one_attached :avatar do |attachable|
+    attachable.variant :thumb, resize_to_limit: [100, 100], preprocessed: true
+  end
   has_one_attached :cover_photo
 
   validates :first_name, :second_name, presence: true

@@ -12,19 +12,21 @@ turbo-frame#comments {
 .comment turbo-frame {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   padding: 20px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.comment turbo-frame p {
-  white-space: pre-wrap;
-}
-
 .comment.own {
   background-color: #ffbc6c;
   color: white;
+}
+
+.comment .actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .comment .actions img {
@@ -37,10 +39,9 @@ turbo-frame#comments {
   background: transparent;
 }
 
-.comment .actions {
+.comment .actions .like {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .comment form + a {
@@ -48,4 +49,25 @@ turbo-frame#comments {
   color: #3a3a3a;
   cursor: pointer;
   text-decoration: none;
+}
+
+.comment .main {
+  position: relative;
+}
+
+.comment .main p {
+  white-space: pre-wrap;
+  width: 80%;
+}
+
+.comment .profile {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.comment .profile img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
 }
