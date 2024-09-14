@@ -1,30 +1,38 @@
 <div class='comment <%= "own" if comment.user == current_user %>'>
   <%= turbo_frame_tag "comment_#{comment.id}" do %>
-    <p><%= comment.body %></p>
-    <div>
-      <%= comment.user.full_name %>
-    </div>
-    <div class="actions">
-      <div class="like">
-        <%= button_to image_tag('heart.svg', alt: "Like"),
-            like_comment_path(comment),
-            method: :post unless current_user.liked?(comment) %>
-
-        <%= button_to image_tag('heart_filled.svg', alt: "Unlike"),
-            unlike_comment_path(comment),
-            method: :delete if current_user.liked?(comment) %>
+    <div class="main">
+      <p><%= comment.body %></p>
+      <div class="profile">
+        <%= image_tag comment.user.avatar.variant(:thumb) || 'sample.svg' , class: "profile_image", title: comment.user.full_name %>
       </div>
+    </div>
 
-      <div class="misc">
-        <% if current_user == comment.user %>
-          <%= link_to edit_comment_path(comment) do %>
-            <%= image_tag 'edit.svg', alt: "Edit" %>
-          <% end %>
+    <div class="footer">
+      <div class="actions">
+        <div class="like">
+          <%= button_to image_tag('heart.svg', alt: "Like"),
+              like_comment_path(comment),
+              method: :post unless current_user.liked?(comment) %>
 
-          <%= link_to comment, data: { turbo_method: "delete", turbo_confirm: "Are you sure?", turbo_frame: "_top"} do %>
-            <%= image_tag 'delete.svg', alt: "Delete" %>
+          <%= button_to image_tag('heart_filled.svg', alt: "Unlike"),
+              unlike_comment_path(comment),
+              method: :delete if current_user.liked?(comment) %>
+          <div class="like_count">
+            <%= comment.likes.count %>
+          </div>
+        </div>
+
+        <div class="misc">
+          <% if current_user == comment.user %>
+            <%= link_to edit_comment_path(comment) do %>
+              <%= image_tag 'edit.svg', alt: "Edit" %>
+            <% end %>
+
+            <%= link_to comment, data: { turbo_method: "delete", turbo_confirm: "Are you sure?", turbo_frame: "_top"} do %>
+              <%= image_tag 'delete.svg', alt: "Delete" %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   <% end %>
