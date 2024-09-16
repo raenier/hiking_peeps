@@ -7,8 +7,6 @@ FactoryBot.define do
     password_confirmation { password }
     confirmed_at { Time.now }
 
-    profile { association :profile, user: instance }
-
     trait :with_posts do
       after(:create) do |user|
         create_list(:post, 2, user:)
@@ -31,6 +29,12 @@ FactoryBot.define do
     trait :with_followed_posts do
       after(:create) do |user|
         user.follow(create(:user, :with_posts))
+      end
+    end
+
+    trait :with_profile do
+      after(:create) do |user|
+        create(:profile, user:)
       end
     end
   end
