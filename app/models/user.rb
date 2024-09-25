@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable, :confirmable,
+         :omniauthable, omniauth_providers: %i[github]
 
   has_many :posts
   has_many :comments
@@ -26,8 +27,6 @@ class User < ApplicationRecord
   validates :cover_photo, content_type: %i[png jpg jpeg]
 
   accepts_nested_attributes_for :profile
-
-  after_initialize :build_profile, if: -> { new_record? && profile.nil? }
 
   def full_name
     "#{first_name} #{second_name}"
@@ -59,5 +58,17 @@ class User < ApplicationRecord
 
   def posts_feed
     Post.where(user: following).or(Post.where(user: self)).order(created_at: :desc)
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.first_name = auth.info.name
+      user.second_name = auth.info.nickname
+      user.avatar.attach(io: URI.open("https://avatars.githubusercontent.com/u/#{auth.uid}"), filename: 'avatar.jpeg')
+      user.build_profile
+      user.skip_confirmation!
+    end
   end
 end
