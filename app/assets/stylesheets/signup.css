@@ -90,7 +90,7 @@
   margin-top: 10px;
 }
 
-.devise-links button {
+.oauth_button {
   background-color: #695566;
   cursor: pointer;
   font-weight: bold;
@@ -100,4 +100,14 @@
   padding: 10px;
   width: 100%;
   margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.oauth_button img {
+  width: 30px;
+  height: 30px;
 }
