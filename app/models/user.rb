@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
-         :omniauthable, omniauth_providers: %i[github]
+         :omniauthable, omniauth_providers: %i[github google_oauth2]
 
   has_many :posts
   has_many :comments
@@ -64,10 +64,10 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      user.first_name = auth.info.name
-      user.second_name = auth.info.nickname
-      user.avatar.attach(io: URI.open("https://avatars.githubusercontent.com/u/#{auth.uid}"), filename: 'avatar.jpeg')
-      user.build_profile
+      user.first_name = auth.info.first_name || auth.info.name
+      user.second_name = auth.info.last_name || auth.info.nickname
+      user.avatar.attach(io: URI.parse(auth.info.image).open, filename: 'avatar.jpeg')
+      user.build_profile(bday: Date.today)
       user.skip_confirmation!
     end
   end

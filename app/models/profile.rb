@@ -4,5 +4,5 @@ class Profile < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :hobies
 
-  validates :gender, :bday, presence: true
+  validates :bday, presence: true
 end
