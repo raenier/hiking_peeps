@@ -81,17 +81,6 @@
   border-radius: 5px;
 }
 
-.flex_column {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.flex_center {
-  align-items: center;
-  justify-content: center;
-}
-
 .post_card .body {
   white-space: pre-wrap;
 }
