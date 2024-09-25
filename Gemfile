@@ -10,6 +10,8 @@ gem 'image_processing', '~> 1.2'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'kaminari'
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
 gem 'pg', '~> 1.1'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.3', '>= 7.1.3.4'
@@ -23,6 +25,7 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
+  gem 'dotenv'
   gem 'rspec-rails', '~> 6.1'
   gem 'shoulda-matchers', '~> 6.0'
 end

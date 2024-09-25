@@ -96,3 +96,15 @@
   padding: 10px;
   width: 100%;
 }
+
+.devise-links button {
+  background-color: #695566;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  border: 0;
+  padding: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
