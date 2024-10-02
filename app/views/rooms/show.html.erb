@@ -1,0 +1,6 @@
+<h2><%= @room.name %></h2>
+
+<%= turbo_stream_from @room %>
+<div id="messages">
+  <%= render @messages  %>
+</div>

@@ -35,4 +35,6 @@ Rails.application.routes.draw do
       resources :profiles, only: %i[show edit update]
     end
   end
+
+  resources :rooms, only: %i[index show]
 end
