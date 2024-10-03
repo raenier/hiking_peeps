@@ -1,0 +1,8 @@
+<%= form_with model: room, data: { controller: "form", action: "turbo:submit-end->form#reset" } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= render partial: "shared/errors", locals: { object: room } %>
+
+  <%= f.submit 'CREATE ROOM', class: 'btn' %>
+<% end %>
