@@ -1,6 +1,8 @@
-<h2><%= @room.name %></h2>
+<%= turbo_frame_tag "messages" do %>
+  <h2><%= @room.name %></h2>
 
-<%= turbo_stream_from @room %>
-<div id="messages">
-  <%= render @messages  %>
-</div>
+  <%= turbo_stream_from @room %>
+  <div id="messages">
+    <%= render @messages  %>
+  </div>
+<% end %>
