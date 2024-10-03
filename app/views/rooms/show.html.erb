@@ -2,7 +2,9 @@
   <h2><%= @room.name %></h2>
 
   <%= turbo_stream_from @room %>
-  <div id="messages">
+  <div id="message_list">
     <%= render @messages  %>
   </div>
+
+  <%= turbo_frame_tag "new_message", src: new_message_path %>
 <% end %>

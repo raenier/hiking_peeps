@@ -36,5 +36,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :rooms, only: %i[index show new create]
+  resources :rooms, only: %i[index show new create] do
+    member do
+      resources :messages, only: %i[new create]
+    end
+  end
 end
