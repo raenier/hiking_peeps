@@ -1,5 +1,6 @@
-<%= message.body %>
-
-<div>
-  <%= message.user.full_name %>
-</div>
+<%= content_tag :div, class: "message user_#{message.user_id}" do %>
+  <%= message.body %>
+  <div class="author">
+    <%= message.user.full_name %>
+  </div>
+<% end %>

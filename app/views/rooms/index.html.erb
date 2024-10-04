@@ -1,9 +1,14 @@
-<%= turbo_stream_from 'rooms' %>
-<div id="rooms">
-  <%= render @rooms %>
+<div class="chat_box">
+  <div class="side_nav">
+    <%= turbo_stream_from 'rooms' %>
+    <div id="rooms">
+      <%= render @rooms %>
+    </div>
+    <%= turbo_frame_tag "new_room", src: new_room_path %>
+  </div>
+
+  <div class="body">
+    <%= turbo_frame_tag "messages" do %>
+    <% end %>
+  </div>
 </div>
-
-<%= turbo_frame_tag "new_room", src: new_room_path %>
-
-<%= turbo_frame_tag "messages" do %>
-<% end %>

@@ -1,0 +1,90 @@
+.chat_box {
+  display: flex;
+
+}
+
+.chat_box .body {
+  border-radius: 5px;
+  padding: 20px;
+  background-color: gray;
+  flex: 2;
+
+  position: relative;
+}
+
+.chat_box .body #message_list {
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.reversed {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-height: 40vh;
+  height: 40vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.chat_box .side_nav {
+  flex: 1;
+}
+
+.chat_box .side_nav #rooms {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.chat_box .side_nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.chat_box .side_nav .room:hover {
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+.chat_box .room_name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  color: white;
+}
+
+.chat_box .new_message_form form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  width: 100%;
+}
+
+.new_message_form input[type="text"] {
+  flex: 1;
+  padding: 10px;
+}
+
+.chat_box .body .message {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 26% 74% 25% 75% / 100% 33% 67% 0%;
+  background-color: white;
+}
+
+.message .author {
+  font-weight: 700;
+}
