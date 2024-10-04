@@ -1,0 +1,7 @@
+<%= form_with model: message, data: { controller: "form", action: "turbo:submit-end->form#reset" } do |f| %>
+  <%= f.text_field :body, placeholder: "Write a message" %>
+
+  <%= render partial: "shared/errors", locals: { object: message } %>
+
+  <%= f.submit 'SEND', class: 'btn' %>
+<% end %>

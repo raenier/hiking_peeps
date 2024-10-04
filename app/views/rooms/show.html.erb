@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "messages" do %>
+  <div class="room_name"><%= @room.name %></div>
+
+  <%= turbo_stream_from @room %>
+  <div class="reversed">
+    <div id="message_list">
+      <%= render @messages  %>
+    </div>
+  </div>
+
+  <div class='new_message_form'>
+    <%= turbo_frame_tag "new_message", src: new_message_path %>
+  </div>
+<% end %>
